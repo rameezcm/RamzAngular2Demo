@@ -5,8 +5,7 @@
   </section>
   <input placeholder="User Name" autofocus="" [(ngModel)]="newUser.name">
   <input  placeholder="Age" autofocus="" [(ngModel)]="newUser.age" >
-  <input  placeholder="Id" autofocus="" [(ngModel)]="newUser.id" >
-  <button (click)="addUser(user)">submit</button>
+  <button (click)="addUser(newUser)">submit</button>
   <button (click)="getAllUser()">Get All Users</button>
  
   {{users.length}}

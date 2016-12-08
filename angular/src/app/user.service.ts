@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response ,Headers } from '@angular/http';
+import { Http, Response ,Headers ,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {User} from './user';
 import * as _ from 'underscore';
@@ -11,12 +11,21 @@ export class UserService {
   private heroesUrl = 'http://localhost:8080/springmvc-jpa-blank/person/getlist/';  // URL to web API
   constructor (private http: Http) {}
   
-  addUser(user: User): UserService {
-    if (!user.id) {
-      user.id = ++this.lastId;
-    }
-    this.users.push(user);
-    return this;
+  addUser(user: User){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify(user);
+	this.http
+      .post('http://localhost:8080/springmvc-jpa-blank/person/addUser/', user).subscribe(
+       data => {
+         // refresh the list
+        this.users = JSON.parse(data["_body"]);
+       },
+       error => {
+         console.error("Error saving User!");
+         
+       }
+    );
   }
   
   

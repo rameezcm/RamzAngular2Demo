@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {User} from '../user';
 import {UserService} from '../user.service';
+import * as _ from 'underscore';
 
 @Component({
   moduleId: "1",
@@ -19,6 +20,12 @@ export class UserAppComponent {
   }
 
   getAllUser(){
-	this.users = this.userService.getAllUser();
+	this.users = _.sortBy(this.userService.getAllUser(), 'id');
+  }
+  
+  addUser(newUser){
+	 this.userService.addUser(newUser);
+	
+	 this.users =  _.sortBy(this.userService.getAllUser(), 'id');
   }
 }
