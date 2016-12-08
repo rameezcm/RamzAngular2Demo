@@ -1,0 +1,34 @@
+<section >
+  <header>
+    <h1>Add User</h1>
+  </header>
+  </section>
+  <input placeholder="User Name" autofocus="" [(ngModel)]="newUser.name">
+  <input  placeholder="Age" autofocus="" [(ngModel)]="newUser.age" >
+  <input  placeholder="Id" autofocus="" [(ngModel)]="newUser.id" >
+  <button (click)="addUser(user)">submit</button>
+  <button (click)="getAllUser()">Get All Users</button>
+ 
+  {{users.length}}
+  
+  <section  *ngIf="users.length > 0">
+
+    
+	<table class="table table-striped table-bordered table-condensed">
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>AGE</th>
+			</tr>
+			<li *ngFor="let user of users" [class.completed]="user.active">
+				<tr>
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.age}}</td>
+				</tr>
+			</li>
+		</table>
+	
+	
+  </section>
+  
