@@ -53,6 +53,26 @@
 							<arguments>install</arguments>
 						</configuration>
 					</execution>
+					
+					<execution>
+						<id>npm install angular cli</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install -g angular-cli</arguments>
+						</configuration>
+					</execution>
+					
+					<execution>
+						<id>npm install underscore</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install @types/underscore</arguments>
+						</configuration>
+					</execution>
 
 					<!-- It will execute command "npm build" inside "/angular" directory to clean and create "/dist" directory-->
 					<execution>
@@ -61,7 +81,17 @@
 							<goal>npm</goal>
 						</goals>
 						<configuration>
-							<arguments>run build</arguments>
+							<arguments>build</arguments>
+						</configuration>
+					</execution>
+					
+					<execution>
+						<id>npm start</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>start</arguments>
 						</configuration>
 					</execution>
 				</executions>
