@@ -3,6 +3,9 @@ import { Http, Response ,Headers ,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {User} from './user';
 import * as _ from 'underscore';
+import {Observable} from 'rxjs/Rx'
+
+
 
 @Injectable()
 export class UserService {
@@ -29,17 +32,18 @@ export class UserService {
   }
   
   
-  getAllUser(): User[] {
+  getAllUser(): Observable<User[]> {
    
-	this.http
+	/*this.http
       .get(this.heroesUrl).subscribe(
       data => {
 		// _.each( JSON.parse(data["_body"]) , function(a){console.log(a)});
 		this.users = JSON.parse(data["_body"]);
-		return this.users;
+		return JSON.parse(data["_body"]);
 	  }
-     )
-	return this.users;
+     ) ;
+	return this.users;*/
+	return this.http.get(this.heroesUrl).map(res => res.json());
   }
   
   getAllUsers(): User[] {

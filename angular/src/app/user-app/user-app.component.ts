@@ -14,18 +14,38 @@ export class UserAppComponent {
 
   newUser: User = new User();
   
-  users: User[] = this.userService.getAllUser();
-
+  message : String = "";
+  
+  public users: User[] = [];
+ // users: User[]
   constructor(private userService: UserService) {
+	  this.users = [];
   }
 
-  getAllUser(){
-	this.users = _.sortBy(this.userService.getAllUser(), 'id');
+  getAllUser():User[]{
+	//this.users = _.sortBy(this.userService.getAllUser(), 'id');
+	//return this.users ;
+	this.userService.getAllUser().subscribe(
+       data => {
+         // refresh the list
+       	this.users = _.sortBy(data, 'id').reverse() ;
+		return this.users ;
+       },
+       error => {
+         console.error("Error saving User!");
+         
+       }
+    );
+	return this.users 
   }
   
   addUser(newUser){
 	 this.userService.addUser(newUser);
-	
-	 this.users =  _.sortBy(this.userService.getAllUser(), 'id');
+	 this.users = [];
+	 newUser = new User();
+	 newUser.name = " ";
+	 newUser.age = " ";
+	 this.message = "User Added";
+	 //return this.getAllUser() ;
   }
 }
