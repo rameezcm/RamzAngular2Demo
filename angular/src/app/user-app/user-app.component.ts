@@ -45,7 +45,7 @@ export class UserAppComponent {
 	 newUser = new User();
 	 newUser.name = " ";
 	 newUser.age = " ";
-	 this.message = "User Added";
+	 this.message = "Establishment Added";
 	 //return this.getAllUser() ;
   }
 }
