@@ -14,11 +14,12 @@ export class UserService {
   private heroesUrl = 'http://localhost:8080/springmvc-jpa-blank/person/getlist/';  // URL to web API
   constructor (private http: Http) {}
   
-  addUser(user: User){
+  addUser(user: User) :Observable<User[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify(user);
-	this.http
+	return this.http.post('http://localhost:8080/springmvc-jpa-blank/person/addUser/', user).map(res => res.json());
+	/*this.http
       .post('http://localhost:8080/springmvc-jpa-blank/person/addUser/', user).subscribe(
        data => {
          // refresh the list
@@ -28,7 +29,7 @@ export class UserService {
          console.error("Error saving User!");
          
        }
-    );
+    );*/
   }
   
   

@@ -5,18 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UserAppComponent } from './user-app/user-app.component';
+import { SucessComponent } from './sucess/sucess.component';
+import { routing,
+         appRoutingProviders }  from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserAppComponent
+    UserAppComponent,
+    SucessComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	routing
   ],
-  providers: [],
+  providers:    [ appRoutingProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
