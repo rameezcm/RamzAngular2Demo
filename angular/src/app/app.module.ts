@@ -8,12 +8,14 @@ import { UserAppComponent } from './user-app/user-app.component';
 import { SucessComponent } from './sucess/sucess.component';
 import { routing,
          appRoutingProviders }  from './app.routing';
+import { EstablishmentComponent } from './establishment/establishment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserAppComponent,
-    SucessComponent
+    SucessComponent,
+    EstablishmentComponent
   ],
   imports: [
     BrowserModule,

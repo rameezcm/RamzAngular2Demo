@@ -11,6 +11,8 @@ import {
 }
 from '../user.service';
 import * as _ from 'underscore';
+import { Router, RouterModule } from '@angular/router';
+
 @Component({
  moduleId: "1",
  selector: 'user-app',
@@ -23,7 +25,7 @@ export class UserAppComponent {
  message: String = "";
  public users: User[] = [];
  // users: User[]
- constructor(private userService: UserService) {
+ constructor(private userService: UserService , private router :Router) {
   this.users = [];
  }
 
@@ -43,6 +45,11 @@ export class UserAppComponent {
   );
   return this.users
  }
+ 
+ getSucess() {
+	 this.router.navigate(['/establishment']);
+ }
+ 
  addUser(newUser): User[] {
   this.userService.addUser(newUser).subscribe(
    data => {
