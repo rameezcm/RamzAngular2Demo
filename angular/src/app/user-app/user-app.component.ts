@@ -1,5 +1,5 @@
 import {
- Component
+ Component,EventEmitter
 }
 from '@angular/core';
 import {
@@ -10,6 +10,11 @@ import {
  UserService
 }
 from '../user.service';
+
+import {
+ SharedServiceService
+}
+from '../shared-service.service';
 import * as _ from 'underscore';
 import { Router, RouterModule } from '@angular/router';
 
@@ -22,10 +27,11 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class UserAppComponent {
  newUser: User = new User();
+ emitter = new EventEmitter();
  message: String = "";
  public users: User[] = [];
  // users: User[]
- constructor(private userService: UserService , private router :Router) {
+ constructor(private userService: UserService ,private sharedService: SharedServiceService , private router :Router) {
   this.users = [];
  }
 
@@ -47,6 +53,7 @@ export class UserAppComponent {
  }
  
  getSucess() {
+	 this.sharedService.saveData(this.newUser);
 	 this.router.navigate(['/establishment']);
  }
  

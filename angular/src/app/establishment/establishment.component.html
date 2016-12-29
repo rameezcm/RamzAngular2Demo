@@ -1,6 +1,6 @@
 
 <h1>ESTABLISHMENT</h1>
-<form (ngSubmit)="getEstData()">
+
 <div class="container" >
 
     <div class="eid">
@@ -10,12 +10,15 @@
         <br>
     <div class="name">
         <label>Name</label>
-        <input type="text" style="margin-left: 118px;" >
+        
+		<input placeholder="Establishment Name" autofocus="" [(ngModel)]="newUser.name" style="margin-left: 76px;">
+
     </div>
         <br>
     <div class="sname">
         <label>Short Name</label>
-        <input type="text" style="margin-left: 76px;">
+       
+		<input placeholder="Establishment year" autofocus="" [(ngModel)]="newUser.age" style="margin-left: 76px;">
     </div>
         <br>
     <div class="sdate">
@@ -42,7 +45,7 @@
         <button type="submit" class="btn btn-default"  style="padding: 10px 12px;">Submit</button>
 
 </div>
-</form>
+
 <!--
 <div class="container">
     <div  [hidden]="submitted">
