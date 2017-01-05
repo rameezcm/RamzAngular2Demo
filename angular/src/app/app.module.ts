@@ -9,6 +9,7 @@ import { SucessComponent } from './sucess/sucess.component';
 import { routing,
          appRoutingProviders }  from './app.routing';
 import { EstablishmentComponent } from './establishment/establishment.component';
+import {AgGridModule} from "ag-grid-ng2/main";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,11 @@ import { EstablishmentComponent } from './establishment/establishment.component'
     BrowserModule,
     FormsModule,
     HttpModule,
-	routing
+	routing,
+	AgGridModule.withComponents(
+            [
+               UserAppComponent 
+            ]),
   ],
   providers:    [ appRoutingProviders ],
   bootstrap: [AppComponent]

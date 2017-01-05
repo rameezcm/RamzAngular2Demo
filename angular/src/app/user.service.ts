@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/Rx'
 export class UserService {
   lastId: number = 0;
   users: User[] = [];
-  private heroesUrl = 'http://10.133.18.45:9090/establishment/612';  // URL to web API
+  private heroesUrl = 'http://localhost:8080/springmvc-jpa-blank/person/getlist';  // URL to web API
   constructor (private http: Http) {}
   
   addUser(user: User) :Observable<User[]> {

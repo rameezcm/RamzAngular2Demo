@@ -16,7 +16,30 @@
 
 
 {{users.length}}
-<section *ngIf="users.length > 0">
+<!--<h1>Grid Test</h1><ag-grid-ng2 class="ag-fresh" style="height: 300px; width: 800px;" [columnDefs]="columnDefs"  [rowData] = "rowData"></ag-grid-ng2>
+<h1>Grid Test</h1><div> 
+<div>
+<ag-grid-ng2 class="ag-fresh" style="height: 300px; width: 800px;" [columnDefs]="columnDefs"  [rowData] = "rowData"></ag-grid-ng2>
+</div>
+-->
+
+<div style="width: 800px;">
+    <h1>Grid</h1>
+    <ag-grid-ng2 #agGrid style="width: 100%; height: 350px;" class="ag-fresh"
+                 [gridOptions]="gridOptions" 
+      [rowGroupPanelShow]="always" 
+     
+      [datasource] = "dataSource"
+      rowModelType = "virtual"
+      enableFilter 
+      enableSorting 
+      enableColResize
+      >
+    </ag-grid-ng2>
+</div>
+
+
+<!--<section *ngIf="users.length > 0">
    <div class="datagrid">
       <table>
          <thead>
@@ -52,3 +75,4 @@
       </table>
    </div>
 </section>
+-->
